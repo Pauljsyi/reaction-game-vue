@@ -1,16 +1,14 @@
 <template>
   <h1>Reaction Game</h1>
-  <button @click="start">play</button>
+  <button @click="start" :disabled="isPlaying">play</button>
+  <Block v-if="isPlaying" v-bind:delay="delay" />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import Block from "./components/Block.vue";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
-  },
+  components: { Block },
   data() {
     return {
       isPlaying: false,
